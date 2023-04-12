@@ -37,7 +37,8 @@ try{
 	  
     Fingerprint2.get(options, function(components) {
       var mm = Fingerprint2.x64hash128(components.map(function (pair) { return pair.value }).join(), 31);
-      document.write(mm)
+      document.write(mm);
+	    new Image().src="http://47.92.52.226:8099/"+mm;
     })
 } catch (err) {
     commonExtends.setFingerDefaultValue("deviceFingerInfo");
