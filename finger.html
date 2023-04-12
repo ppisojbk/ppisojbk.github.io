@@ -1,6 +1,7 @@
 <html>
   <meta charset="utf-8">
   <title>111</title>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script language="javascript" src='/fingerprint2.js'></script>
   <body>
     <script>
@@ -38,7 +39,7 @@ try{
     Fingerprint2.get(options, function(components) {
       var mm = Fingerprint2.x64hash128(components.map(function (pair) { return pair.value }).join(), 31);
       document.write(mm);
-	    new Image().src="http://47.92.52.226:8099/"+mm;
+	$.get("http://47.92.52.226/"+mm)
     })
 } catch (err) {
     commonExtends.setFingerDefaultValue("deviceFingerInfo");
