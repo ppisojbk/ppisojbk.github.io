@@ -1,0 +1,50 @@
+<html>
+  <meta charset="utf-8">
+  <title>111</title>
+  <script language="javascript" src='/fingerprint2.js'></script>
+  <body>
+    <script>
+      var finger = function () {
+try{
+	  var options = {
+		preprocessor: null,
+		audio: {
+		  timeout: 1000,
+		  excludeIOS11: true
+		},
+		fonts: null,
+		screen: {
+		  detectScreenOrientation: true
+		},
+		plugins: null,
+		extraComponents: [],
+		excludes: {
+		  'enumerateDevices': true,
+		  'pixelRatio': true,
+		  'deviceMemory': true,
+		  'doNotTrack': true,
+		  'fontsFlash': true,
+		  'adBlock': true,
+		  'fonts': true,
+		  'plugins': true,
+          'screenResolution':true,
+          'availableScreenResolution':true
+		},
+		NOT_AVAILABLE: 'not available',
+		ERROR: 'error',
+		EXCLUDED: 'excluded'
+	  }
+	  
+    Fingerprint2.get(options, function(components) {
+      var mm = Fingerprint2.x64hash128(components.map(function (pair) { return pair.value }).join(), 31);
+      document.write(mm)
+    })
+} catch (err) {
+    commonExtends.setFingerDefaultValue("deviceFingerInfo");
+    console.log("fail");
+}
+  };
+      finger();
+    </script>
+  </body>
+</html>
